@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PyleaMUN 2027 Historical Crisis Committee Study Guide</title>
+  <style>
+    :root{
+      --ink:#232323;
+      --muted:#5f6368;
+      --pylea-blue:#0047b3;
+      --deep-blue:#0b1f3a;
+      --gold:#c9a227;
+      --paper:#fffdf7;
+      --panel:#ffffff;
+      --line:#d8d2bd;
+      --soft:#f4efe1;
+      --danger:#9b1c1c;
+      --soviet:#7f1d1d;
+      --usa:#173b7a;
+      --neutral:#4c5f39;
+      --shadow:0 14px 32px rgba(0,0,0,.12);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Georgia, "Times New Roman", serif;
+      background:linear-gradient(180deg,#f8f2df 0%,#fffaf0 35%,#f5eddc 100%);
+      color:var(--ink);
+      line-height:1.55;
+    }
+    .page{
+      width:min(1180px,94vw);
+      margin:24px auto 48px;
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    header.letterhead{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:24px;
+      padding:22px 34px 18px;
+      border-bottom:4px double var(--gold);
+      background:linear-gradient(135deg,#ffffff 0%,#f5efdc 100%);
+    }
+    .contact{font-size:.92rem;color:#333;line-height:1.45}
+    .contact.right{text-align:right}
+    .logoWrap{text-align:center}
+    .logoWrap img{width:112px;max-width:22vw;height:auto;display:block;margin:auto}
+    .logoText{font-size:.8rem;color:var(--muted);margin-top:4px}
+    .hero{
+      padding:34px 42px 30px;
+      background:radial-gradient(circle at top right, rgba(201,162,39,.18), transparent 35%), linear-gradient(135deg,#101a2c 0%,#273a53 100%);
+      color:white;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:after{
+      content:"";
+      position:absolute;inset:auto -80px -120px auto;
+      width:360px;height:360px;border-radius:50%;
+      border:28px solid rgba(201,162,39,.16);
+    }
+    h1{font-size:clamp(1.2rem,2.7vw,2.64rem);line-height:1.05;margin:0 0 10px;letter-spacing:.03em;text-transform:uppercase;color:#f4d675}
+    .subtitle{font-size:clamp(1.1rem,2.4vw,1.65rem);margin:0;color:#f7f3e8}
+    .tagline{max-width:930px;margin:18px 0 0;font-size:1.05rem;color:#eae5d5}
+    .controls{
+      display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+      padding:18px 42px;background:#fff;border-bottom:1px solid var(--line);
+      position:sticky;top:0;z-index:10;
+    }
+    button,.nav a{
+      border:1px solid var(--gold);background:#fff8e3;color:#2b2b2b;border-radius:999px;
+      padding:9px 14px;font-family:inherit;font-weight:bold;cursor:pointer;text-decoration:none;
+      box-shadow:0 2px 7px rgba(0,0,0,.06);
+    }
+    button:hover,.nav a:hover{background:#f1df9b}
+    main{padding:28px 42px 44px}
+    h2{font-size:1.45rem;margin:0;color:var(--deep-blue)}
+    h3{font-size:1.2rem;margin:22px 0 8px;color:#4a2f00}
+    h4{font-size:1.05rem;margin:18px 0 6px;color:var(--deep-blue)}
+    p{margin:.55rem 0}
+    .nav{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 22px}
+    .note{
+      border-left:6px solid var(--gold);background:#fff8e5;padding:16px 18px;border-radius:12px;margin:16px 0;
+    }
+    .warning{border-left-color:var(--danger);background:#fff1f1}
+    details.section{
+      border:1px solid var(--line);border-radius:var(--radius);margin:18px 0;background:var(--panel);overflow:hidden;
+      box-shadow:0 6px 18px rgba(0,0,0,.05);
+    }
+    details.section>summary{
+      cursor:pointer;list-style:none;padding:18px 22px;background:linear-gradient(90deg,#f0e2b8,#fff6dc);font-weight:bold;
+      display:flex;align-items:center;gap:10px;
+    }
+    details.section>summary::-webkit-details-marker{display:none}
+    details.section>summary:before{content:"▸";font-size:1.2rem;color:var(--danger);transition:.2s transform}
+    details.section[open]>summary:before{transform:rotate(90deg)}
+    .content{padding:20px 22px 24px}
+    .two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .three-col{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .card{
+      border:1px solid var(--line);border-radius:16px;background:#fff;padding:16px;box-shadow:0 4px 12px rgba(0,0,0,.05)
+    }
+    .card h4{margin-top:0}
+    .label{display:inline-block;font-size:.78rem;text-transform:uppercase;letter-spacing:.07em;font-weight:bold;padding:3px 8px;border-radius:999px;background:#eee;color:#333;margin-bottom:8px}
+    .label.soviet{background:#ffe7e7;color:#7f1d1d}.label.usa{background:#e6efff;color:#173b7a}.label.neutral{background:#eef5de;color:#4c5f39}.label.composite{background:#ececec;color:#555}
+    table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:.95rem;background:#fff}
+    th,td{border:1px solid var(--line);vertical-align:top;padding:10px 12px}
+    th{background:#efe3bd;color:#1b1b1b;text-align:left}
+    tr:nth-child(even) td{background:#fffaf0}
+    .role-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:18px}
+    .role-card{border:1px solid var(--line);border-radius:18px;background:#fff;padding:16px;position:relative;overflow:hidden}
+    .role-card:before{content:"";position:absolute;inset:0 0 auto;height:6px;background:linear-gradient(90deg,var(--soviet),var(--gold),var(--usa))}
+    .seat{font-weight:bold;color:var(--deep-blue);margin-top:4px}
+    .role-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+    .mini{padding:10px;border-radius:12px;background:#f8f4e8;border:1px solid #e7dec2}
+    .mini strong{display:block;color:#2d2d2d}
+    .portfolio{font-size:.92rem;color:#333;border-top:1px dashed var(--line);padding-top:10px;margin-top:10px}
+    .portfolio-list{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
+    details.portfolio-card{border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 8px 18px rgba(0,0,0,.06);overflow:hidden}
+    details.portfolio-card>summary{cursor:pointer;list-style:none;padding:14px 18px;background:linear-gradient(90deg,#fff8df,#eef4ff);border-bottom:1px solid var(--line)}
+    details.portfolio-card>summary::-webkit-details-marker{display:none}
+    details.portfolio-card h3{display:inline;margin:0;color:var(--deep-blue);font-size:1.05rem}
+    .portfolio-body{padding:16px 18px 18px}
+    .portfolio-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .module-card{border:1px solid #e4dcc6;border-radius:16px;background:#fffdf8;padding:14px}
+    .module-card h4{margin:0 0 8px;color:var(--danger)}
+    .module-card p{margin:6px 0}
+    .field{font-weight:bold;color:var(--deep-blue)}
+    .sample-note{margin-top:10px;padding:10px 12px;border-left:4px solid var(--gold);background:#fff7dc;border-radius:8px;font-size:.92rem}
+    .callout-title{font-weight:bold;color:var(--danger)}
+    ul{margin-top:6px}.small{font-size:.9rem;color:var(--muted)}
+    footer{border-top:4px double var(--gold);padding:18px 34px;text-align:center;background:#fff;color:#333;font-size:.92rem}
+    .print-only{display:none}
+    @media (max-width:760px){
+      header.letterhead{grid-template-columns:1fr;text-align:center}.contact.right{text-align:center}.contact{text-align:center}
+      .hero,main,.controls{padding-left:22px;padding-right:22px}
+      .two-col,.three-col{grid-template-columns:1fr}.role-pair{grid-template-columns:1fr}
+      .controls{position:static}
+    }
+    @media print{
+      body{background:#fff}.page{width:100%;margin:0;border:0;box-shadow:none;border-radius:0}
+      .controls{display:none} details.section{page-break-inside:avoid;box-shadow:none} details.section>summary{background:#eee}
+      a{color:#000;text-decoration:none}.print-only{display:block}.hero{color:#000;background:#fff;border-bottom:2px solid #000} h1{color:#000}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="letterhead">
+      <div class="contact">
+        <strong>1st Middle School of Pylaia</strong><br>
+        4 Isminis Str.<br>
+        Pylaia, Thessaloniki - 55535
+      </div>
+      <div class="logoWrap">
+        <img src="https://pyleamun.github.io/studyguide-historical/PyleaMUN_finalstamp.png" alt="PyleaMUN Logo">
+        <div class="logoText">PyleaMUN 2027</div>
+      </div>
+      <div class="contact right">
+        +30 2310329199<br>
+        pyleamun@gmail.com<br>
+        <a href="https://pyleamun.github.io/pyleaMUN2027/">https://pyleamun.github.io/pyleaMUN2027/</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>Historical Crisis Committee Study Guide</h1>
+      <p class="subtitle">Information Under Existential Pressure</p>
+      <p class="tagline">Two sequential historical modules. One shared question: who controls the truth when truth itself becomes dangerous?</p>
+    </section>
+
+    <div class="controls">
+      <button onclick="openAll()">Expand all</button>
+      <button onclick="closeAll()">Collapse all</button>
+      <button onclick="printGuide()">Print</button>
+    </div>
+
+    <main>
+      <h2>Quick Navigation</h2>
+      <nav class="nav">
+        <a href="#exec">1. Executive Summary & Procedure</a>
+        <a href="#structure">2. Committee Architecture</a>
+        <a href="#chernobyl">3. Module 1: Chernobyl</a>
+        <a href="#cuba">4. Module 2: Cuban Missile Crisis</a>
+        <a href="#delegates">5. Gallery of Delegates</a>
+        <a href="#portfolio">6. Portfolio Cards</a>
+        <a href="#strategy">7. Conclusions & Strategy</a>
+        <a href="#appendix-a">Appendix A</a>
+        <a href="#appendix-b">Appendix B</a>
+      </nav>
+
+      <details class="section" id="exec">
+        <summary><h2>1. Executive Summary: The Crisis of Truth</h2></summary>
+        <div class="content">
+          <p>This study guide prepares delegates for <strong>PyleaMUN 2027 Historical Crisis Committee I: Information Under Existential Pressure</strong>. The committee is a hybrid crisis body divided into two complete historical modules:</p>
+          <ol>
+            <li><strong>The Chernobyl Disaster (1986): The Cost of Lies</strong></li>
+            <li><strong>The Cuban Missile Crisis (1962): Information Brinkmanship and the Management of Signal Intelligence</strong></li>
+          </ol>
+          <p>Delegates will finish discussing and deliberating on the first module before moving to the second. The two modules do not take place in the same historical timeline, but they share the same procedural and intellectual core: <strong>leaders must act under conditions of incomplete, delayed, distorted, or politically dangerous information.</strong></p>
+
+          <div class="note warning">
+            <p class="callout-title">⚠ IMPORTANT PROCEDURAL NOTE: The Hybrid Format</p>
+            <p>This committee operates as a Hybrid Specialized Agency. Delegates must master three distinct forms of action:</p>
+            <ol>
+              <li><strong>The Public Deliberation Track:</strong> open debate, bloc formation, negotiation, public statements, and final collective documents.</li>
+              <li><strong>The Crisis Track:</strong> immediate responses to crisis updates through short, action-oriented <strong>Directives</strong>.</li>
+              <li><strong>The Backroom / Portfolio Track:</strong> private notes to the dais activating role-specific powers, intelligence channels, media influence, technical authority, or covert leverage.</li>
+            </ol>
+          </div>
+
+          <h3>The Shared Mandate</h3>
+          <p>The mandate of this committee is not simply to prevent disaster. It is to examine how disasters are worsened, delayed, prevented, or transformed by the management of information. In Chernobyl, delegates must decide whether to protect human life or protect the image of the state. In the Cuban Missile Crisis, delegates must decide whether to signal strength or risk nuclear miscalculation.</p>
+
+          <h3>The Core Question</h3>
+          <p><strong>What happens when governments, scientists, intelligence agencies, militaries, media actors, and international institutions compete to control what is known, what is hidden, and what is believed?</strong></p>
+        </div>
+      </details>
+
+      <details class="section" id="structure">
+        <summary><h2>2. Committee Architecture: One Committee, Two Sequential Modules</h2></summary>
+        <div class="content">
+          <p>This committee is designed as a single Historical Crisis Committee with two sequential simulations. Delegates will not keep the same historical identity across both modules. Instead, each delegate receives a <strong>paired role archetype</strong>. This means that a delegate who plays a head of state in Module 1 will also play a head of state in Module 2; a delegate who plays an intelligence chief in Module 1 will also play an intelligence chief in Module 2.</p>
+
+          <h3>The Three-Track Crisis Model</h3>
+          <table>
+            <thead><tr><th>Track</th><th>Purpose</th><th>Documents / Actions</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Public Deliberation</strong></td><td>Open debate and collective decision-making.</td><td>Communiqués, public statements, protocols, final frameworks.</td></tr>
+              <tr><td><strong>Crisis Response</strong></td><td>Immediate reaction to sudden updates.</td><td>Directives, emergency orders, intelligence requests, evacuation orders, naval orders.</td></tr>
+              <tr><td><strong>Backroom / Portfolio</strong></td><td>Secret use of role-specific leverage.</td><td>Private notes, covert intelligence, controlled leaks, pressure campaigns, scientific warnings.</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Documents Used in This Committee</h3>
+          <ul>
+            <li><strong>Directive:</strong> a short, urgent order responding to a crisis update.</li>
+            <li><strong>Public Communiqué:</strong> an official message released to the public or international community.</li>
+            <li><strong>Intelligence Brief:</strong> a classified or semi-classified assessment of uncertain information.</li>
+            <li><strong>Emergency Protocol:</strong> a structured plan for containment, evacuation, verification, or de-escalation.</li>
+            <li><strong>Final Framework:</strong> the final product of a module, summarising the committee’s decisions and consequences.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="section" id="chernobyl">
+        <summary><h2>3. Module 1: The Chernobyl Disaster (1986): The Cost of Lies</h2></summary>
+        <div class="content">
+          <h3>The Situation</h3>
+          <p>It is April 1986. Reactor No. 4 at the Chernobyl Nuclear Power Plant has exploded during a late-night safety test. Local officials, plant management, Soviet ministries, the KGB, scientists, foreign governments, and international organisations are now trapped in a crisis where the most dangerous question is also the simplest: <strong>what actually happened?</strong></p>
+
+          <h3>The Mandate</h3>
+          <p>Delegates must respond to a nuclear disaster while managing public fear, scientific uncertainty, Soviet secrecy, international detection, evacuation decisions, medical response, environmental contamination, and the credibility of state institutions.</p>
+
+          <div class="note">
+            <p class="callout-title">Central Dilemma</p>
+            <p>Should the state protect its image by controlling information, or protect its people by revealing the truth?</p>
+          </div>
+
+          <h3>Primary Issues for Debate</h3>
+          <div class="three-col">
+            <div class="card"><h4>Radiation Containment</h4><p>How should the committee contain fire, contamination, radioactive release, and long-term environmental damage?</p></div>
+            <div class="card"><h4>Information Containment</h4><p>How much should Soviet authorities disclose to citizens, foreign governments, scientists, and the global press?</p></div>
+            <div class="card"><h4>Evacuation & Public Health</h4><p>When should Pripyat and surrounding areas be evacuated, and how should the health risk be communicated?</p></div>
+          </div>
+
+          <h3>Likely Strategic Blocs</h3>
+          <p class="small"><strong>Important:</strong> blocs are strategic tendencies, not fixed teams. Delegates may begin near one bloc and move toward another as evidence, pressure, and private notes change the situation.</p>
+          <table>
+            <thead><tr><th>Bloc</th><th>Core Belief</th><th>Likely Members</th></tr></thead>
+            <tbody>
+              <tr><td><strong>State Security &amp; Information Control Bloc</strong></td><td>The priority is to protect Soviet authority, prevent panic, limit foreign exploitation, and control the official narrative.</td><td>Party leadership, KGB, Soviet ministries, state media, and officials worried about political collapse.</td></tr>
+              <tr><td><strong>Scientific &amp; Humanitarian Response Bloc</strong></td><td>Accurate information, evacuation, medical response, and radiation containment must override institutional reputation.</td><td>Scientists, medical authorities, local emergency officials, decontamination teams, and technical advisers.</td></tr>
+              <tr><td><strong>International Verification &amp; Pressure Bloc</strong></td><td>Once radiation is detected beyond Soviet borders, the disaster becomes an international crisis requiring notification, verification, and accountability.</td><td>United States representatives, Sweden, IAEA observers, foreign ministries, embassies, and international press.</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Expected Final Product</h3>
+          <p>The module should conclude with an <strong>Emergency Containment and Public Information Protocol</strong>, including:</p>
+          <ul>
+            <li>evacuation and exclusion-zone measures;</li>
+            <li>technical containment directives;</li>
+            <li>medical and environmental monitoring;</li>
+            <li>public information rules;</li>
+            <li>international notification and verification mechanisms;</li>
+            <li>accountability for misinformation or negligence.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="section" id="cuba">
+        <summary><h2>4. Module 2: The Cuban Missile Crisis (1962): SIGINT and Brinkmanship</h2></summary>
+        <div class="content">
+          <h3>The Situation</h3>
+          <p>It is October 1962. U.S. intelligence has identified Soviet nuclear missile installations in Cuba. The United States, the Soviet Union, and Cuba face a confrontation in which one misread signal, one unauthorized military action, or one public humiliation could trigger nuclear war.</p>
+
+          <h3>Key Concepts</h3>
+          <div class="two-col">
+            <div class="card">
+              <h4>SIGINT</h4>
+              <p><strong>Signals Intelligence</strong>: information gathered by intercepting, analysing, or interpreting communications, radar, military transmissions, coded messages, and electronic signals.</p>
+            </div>
+            <div class="card">
+              <h4>Brinkmanship</h4>
+              <p>The strategy of pushing a dangerous situation close to disaster in order to force the other side to back down.</p>
+            </div>
+          </div>
+
+          <div class="note">
+            <p class="callout-title">Central Dilemma</p>
+            <p>How can leaders prevent nuclear war when every signal may be incomplete, misunderstood, or deliberately threatening?</p>
+          </div>
+
+          <h3>Primary Issues for Debate</h3>
+          <div class="three-col">
+            <div class="card"><h4>Military Escalation</h4><p>Should the crisis be handled through blockade, air strike, invasion, negotiation, or secret compromise?</p></div>
+            <div class="card"><h4>Signal Interpretation</h4><p>How should delegates interpret reconnaissance, intercepted messages, Soviet silence, Cuban statements, and naval movement?</p></div>
+            <div class="card"><h4>Public vs. Private Diplomacy</h4><p>How should leaders balance public strength with secret concessions?</p></div>
+          </div>
+
+          <h3>Likely Strategic Blocs</h3>
+          <p class="small"><strong>Important:</strong> blocs are strategic tendencies, not fixed teams. U.S., Soviet, Cuban, and international delegates may shift position as intelligence changes and the risk of nuclear escalation rises.</p>
+          <table>
+            <thead><tr><th>Bloc</th><th>Core Belief</th><th>Likely Members</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Hardline Deterrence Bloc</strong></td><td>Strength, military readiness, and credible threat are necessary to force the other side to retreat.</td><td>Military commanders, hard-line advisers, intelligence officials, and leaders who fear appearing weak.</td></tr>
+              <tr><td><strong>Controlled Diplomacy &amp; De-escalation Bloc</strong></td><td>The crisis must be managed through reversible pressure, backchannels, verification, and carefully controlled public messaging.</td><td>Heads of government, foreign ministers, backchannel negotiators, mediators, and advisers focused on avoiding nuclear war.</td></tr>
+              <tr><td><strong>Sovereignty &amp; Revolutionary Security Bloc</strong></td><td>Cuba and smaller states must not be treated as bargaining chips by superpowers, and revolutionary security must be defended.</td><td>Cuban leadership, Cuban military and foreign-policy roles, sympathetic Soviet or non-aligned actors, and anti-imperialist voices.</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Expected Final Product</h3>
+          <p>The module should conclude with a <strong>De-escalation and Intelligence Management Framework</strong>, including:</p>
+          <ul>
+            <li>rules for military readiness and naval confrontation;</li>
+            <li>channels for public and private communication;</li>
+            <li>verification of missile removal or non-escalation;</li>
+            <li>procedures for interpreting conflicting intelligence;</li>
+            <li>guarantees, concessions, or security assurances;</li>
+            <li>mechanisms to avoid accidental nuclear escalation.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="section" id="delegates">
+        <summary><h2>5. Gallery of Delegates: Paired Country / Ideological Archetypes</h2></summary>
+        <div class="content">
+          <p>The committee contains <strong>20 delegate seats</strong>. Each seat now keeps the same broad <strong>country, bloc, or ideological alignment</strong> across both modules. Soviet / communist-aligned delegates remain Soviet or communist-aligned, American delegates remain American, and international delegates remain neutral or global actors. Real historical figures are used where appropriate; composite roles are clearly labelled when a precise named identity would be misleading.</p>
+
+          <div class="note">
+            <p><strong>Design rule:</strong> delegates should not have to change political instincts completely between modules. A delegate who represents Soviet state power in Chernobyl represents Soviet state power in Cuba; a delegate who represents American pressure in Chernobyl represents American decision-making in Cuba.</p>
+          </div>
+
+          <table>
+            <thead><tr><th>Seat</th><th>Country / Ideological Archetype</th><th>Module 1: Chernobyl</th><th>Module 2: Cuban Missile Crisis</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Soviet / Communist Supreme Leader</td><td>Mikhail Gorbachev — General Secretary of the CPSU</td><td>Nikita Khrushchev — First Secretary of the CPSU</td></tr>
+<tr><td>2</td><td>American Supreme Leader</td><td>Ronald Reagan — President of the United States</td><td>John F. Kennedy — President of the United States</td></tr>
+<tr><td>3</td><td>Soviet / Communist Crisis Coordinator</td><td>Boris Shcherbina — Deputy Chairman of the Council of Ministers / Head of the Government Commission</td><td>Anastas Mikoyan — Soviet Senior Negotiator / Presidium Envoy</td></tr>
+<tr><td>4</td><td>American Defence Executive</td><td>Caspar Weinberger — U.S. Secretary of Defense</td><td>Robert McNamara — U.S. Secretary of Defense</td></tr>
+<tr><td>5</td><td>Soviet Foreign Minister</td><td>Eduard Shevardnadze — Soviet Foreign Minister</td><td>Andrei Gromyko — Soviet Foreign Minister</td></tr>
+<tr><td>6</td><td>American Foreign Minister</td><td>George Shultz — U.S. Secretary of State</td><td>Dean Rusk — U.S. Secretary of State</td></tr>
+<tr><td>7</td><td>Soviet Intelligence / Internal Security Chief</td><td>Viktor Chebrikov — Chairman of the KGB</td><td>Vladimir Semichastny — Chairman of the KGB</td></tr>
+<tr><td>8</td><td>American Intelligence Chief</td><td>William Casey — Director of Central Intelligence</td><td>John McCone — Director of Central Intelligence</td></tr>
+<tr><td>9</td><td>Soviet / Communist Technical Expert</td><td>Valery Legasov — Soviet Nuclear Scientist</td><td>Soviet Missile Technical Adviser — Composite Role</td></tr>
+<tr><td>10</td><td>American Technical / Science Adviser</td><td>U.S. Nuclear Safety Adviser — Composite Role</td><td>Jerome Wiesner — U.S. Presidential Science Adviser</td></tr>
+<tr><td>11</td><td>Communist Affected-Territory Leader</td><td>Volodymyr Shcherbytsky — First Secretary of the Communist Party of Ukraine</td><td>Fidel Castro — Prime Minister of Cuba</td></tr>
+<tr><td>12</td><td>Communist Local Civilian Authority</td><td>Pripyat City Executive Committee Representative — Composite Role</td><td>Havana Civil Defence Representative — Composite Role</td></tr>
+<tr><td>13</td><td>Soviet / Communist Site Commander</td><td>Viktor Bryukhanov — Director of Chernobyl Nuclear Power Plant</td><td>Issa Pliyev — Commander of Soviet Forces in Cuba</td></tr>
+<tr><td>14</td><td>Soviet / Communist Deputy Operations Officer</td><td>Anatoly Dyatlov — Deputy Chief Engineer, Chernobyl Plant</td><td>Soviet Missile Operations Commander — Composite Role</td></tr>
+<tr><td>15</td><td>Communist Military / Civil Defence Authority</td><td>Red Army Chemical &amp; Decontamination Commander — Composite Role</td><td>Raúl Castro — Minister of the Revolutionary Armed Forces of Cuba</td></tr>
+<tr><td>16</td><td>Soviet / Communist State Media</td><td>TASS / Soviet State Media Representative — Composite Role</td><td>Soviet State Media / Radio Moscow Representative — Composite Role</td></tr>
+<tr><td>17</td><td>American Public Narrative / Press Office</td><td>White House Communications Representative — Composite Role</td><td>Pierre Salinger — White House Press Secretary</td></tr>
+<tr><td>18</td><td>Western Diplomatic / Alliance Pressure</td><td>Arthur A. Hartman — U.S. Ambassador to the USSR</td><td>Adlai Stevenson — U.S. Ambassador to the United Nations</td></tr>
+<tr><td>19</td><td>International Verifier / Mediator</td><td>Hans Blix — Director General of the IAEA</td><td>U Thant — United Nations Secretary-General</td></tr>
+<tr><td>20</td><td>Independent International Press</td><td>International Press Correspondent — Composite Role</td><td>International Press Correspondent — Composite Role</td></tr>
+            </tbody>
+          </table>
+
+          <div class="role-grid">
+            <div class="role-card"><div class="seat">Seat 1 — Soviet / Communist Supreme Leader</div><div class="role-pair"><div class="mini"><span class="label soviet">Chernobyl</span><strong>Mikhail Gorbachev</strong>General Secretary’s Line</div><div class="mini"><span class="label soviet">Cuba</span><strong>Nikita Khrushchev</strong>Kremlin Signal</div></div></div>
+<div class="role-card"><div class="seat">Seat 2 — American Supreme Leader</div><div class="role-pair"><div class="mini"><span class="label usa">Chernobyl</span><strong>Ronald Reagan</strong>Presidential Pressure</div><div class="mini"><span class="label usa">Cuba</span><strong>John F. Kennedy</strong>Presidential Authority</div></div></div>
+<div class="role-card"><div class="seat">Seat 3 — Soviet / Communist Crisis Coordinator</div><div class="role-pair"><div class="mini"><span class="label soviet">Chernobyl</span><strong>Boris Shcherbina</strong>Emergency Commission Orders</div><div class="mini"><span class="label soviet">Cuba</span><strong>Anastas Mikoyan</strong>Presidium Troubleshooter</div></div></div>
+<div class="role-card"><div class="seat">Seat 4 — American Defence Executive</div><div class="role-pair"><div class="mini"><span class="label usa">Chernobyl</span><strong>Caspar Weinberger</strong>Strategic Readiness Review</div><div class="mini"><span class="label usa">Cuba</span><strong>Robert McNamara</strong>Defence Coordination</div></div></div>
+<div class="role-card"><div class="seat">Seat 5 — Soviet Foreign Minister</div><div class="role-pair"><div class="mini"><span class="label soviet">Chernobyl</span><strong>Eduard Shevardnadze</strong>Diplomatic Language Control</div><div class="mini"><span class="label soviet">Cuba</span><strong>Andrei Gromyko</strong>Diplomatic Framing</div></div></div>
+<div class="role-card"><div class="seat">Seat 6 — American Foreign Minister</div><div class="role-pair"><div class="mini"><span class="label usa">Chernobyl</span><strong>George Shultz</strong>Western Diplomatic Pressure</div><div class="mini"><span class="label usa">Cuba</span><strong>Dean Rusk</strong>Diplomatic Channel Management</div></div></div>
+<div class="role-card"><div class="seat">Seat 7 — Soviet Intelligence / Internal Security Chief</div><div class="role-pair"><div class="mini"><span class="label soviet">Chernobyl</span><strong>Viktor Chebrikov</strong>Internal Security Net</div><div class="mini"><span class="label soviet">Cuba</span><strong>Vladimir Semichastny</strong>KGB Counterintelligence Screen</div></div></div>
+<div class="role-card"><div class="seat">Seat 8 — American Intelligence Chief</div><div class="role-pair"><div class="mini"><span class="label usa">Chernobyl</span><strong>William Casey</strong>Intelligence Correlation</div><div class="mini"><span class="label usa">Cuba</span><strong>John McCone</strong>Intelligence Estimate</div></div></div>
+<div class="role-card"><div class="seat">Seat 9 — Soviet / Communist Technical Expert</div><div class="role-pair"><div class="mini"><span class="label soviet">Chernobyl</span><strong>Valery Legasov</strong>Technical Truth</div><div class="mini"><span class="label soviet">Cuba</span><strong>Soviet Missile Technical Adviser</strong>Launch-Site Technical Assessment</div></div></div>
+<div class="role-card"><div class="seat">Seat 10 — American Technical / Science Adviser</div><div class="role-pair"><div class="mini"><span class="label usa">Chernobyl</span><strong>U.S. Nuclear Safety Adviser</strong>Technical Verification Request</div><div class="mini"><span class="label usa">Cuba</span><strong>Jerome Wiesner</strong>Scientific Risk Counsel</div></div></div>
+<div class="role-card"><div class="seat">Seat 11 — Communist Affected-Territory Leader</div><div class="role-pair"><div class="mini"><span class="label soviet">Chernobyl</span><strong>Volodymyr Shcherbytsky</strong>Republic-Level Mobilisation</div><div class="mini"><span class="label soviet">Cuba</span><strong>Fidel Castro</strong>Revolutionary Mobilisation</div></div></div>
+<div class="role-card"><div class="seat">Seat 12 — Communist Local Civilian Authority</div><div class="role-pair"><div class="mini"><span class="label soviet">Chernobyl</span><strong>Pripyat City Executive Committee Representative</strong>Local Evacuation Network</div><div class="mini"><span class="label soviet">Cuba</span><strong>Havana Civil Defence Representative</strong>Urban Defence Network</div></div></div>
+<div class="role-card"><div class="seat">Seat 13 — Soviet / Communist Site Commander</div><div class="role-pair"><div class="mini"><span class="label soviet">Chernobyl</span><strong>Viktor Bryukhanov</strong>Plant Command Chain</div><div class="mini"><span class="label soviet">Cuba</span><strong>Issa Pliyev</strong>Field Command Authority</div></div></div>
+<div class="role-card"><div class="seat">Seat 14 — Soviet / Communist Deputy Operations Officer</div><div class="role-pair"><div class="mini"><span class="label soviet">Chernobyl</span><strong>Anatoly Dyatlov</strong>Control-Room Testimony</div><div class="mini"><span class="label soviet">Cuba</span><strong>Soviet Missile Operations Commander</strong>Operational Readiness Log</div></div></div>
+<div class="role-card"><div class="seat">Seat 15 — Communist Military / Civil Defence Authority</div><div class="role-pair"><div class="mini"><span class="label soviet">Chernobyl</span><strong>Red Army Chemical &amp; Decontamination Commander</strong>Containment Deployment</div><div class="mini"><span class="label soviet">Cuba</span><strong>Raúl Castro</strong>Revolutionary Defence Readiness</div></div></div>
+<div class="role-card"><div class="seat">Seat 16 — Soviet / Communist State Media</div><div class="role-pair"><div class="mini"><span class="label soviet">Chernobyl</span><strong>TASS / Soviet State Media Representative</strong>Official Narrative</div><div class="mini"><span class="label soviet">Cuba</span><strong>Soviet State Media / Radio Moscow Representative</strong>Soviet Global Broadcast</div></div></div>
+<div class="role-card"><div class="seat">Seat 17 — American Public Narrative / Press Office</div><div class="role-pair"><div class="mini"><span class="label usa">Chernobyl</span><strong>White House Communications Representative</strong>Western Public Framing</div><div class="mini"><span class="label usa">Cuba</span><strong>Pierre Salinger</strong>Presidential Message Discipline</div></div></div>
+<div class="role-card"><div class="seat">Seat 18 — Western Diplomatic / Alliance Pressure</div><div class="role-pair"><div class="mini"><span class="label usa">Chernobyl</span><strong>Arthur A. Hartman</strong>Embassy Channel</div><div class="mini"><span class="label usa">Cuba</span><strong>Adlai Stevenson</strong>UN Evidence Strategy</div></div></div>
+<div class="role-card"><div class="seat">Seat 19 — International Verifier / Mediator</div><div class="role-pair"><div class="mini"><span class="label neutral">Chernobyl</span><strong>Hans Blix</strong>International Verification Request</div><div class="mini"><span class="label neutral">Cuba</span><strong>U Thant</strong>Mediation Appeal</div></div></div>
+<div class="role-card"><div class="seat">Seat 20 — Independent International Press</div><div class="role-pair"><div class="mini"><span class="label neutral">Chernobyl</span><strong>International Press Correspondent</strong>Investigative Leak</div><div class="mini"><span class="label neutral">Cuba</span><strong>International Press Correspondent</strong>Global Narrative Pressure</div></div></div>
+          </div>
+          <p class="small">The individual portfolio cards below develop these paired roles into playable public positions, private objectives, portfolio powers, allies, rivals, and sample private notes.</p>
+        </div>
+      </details>
+
+      <details class="section" id="portfolio">
+        <summary><h2>6. Portfolio Cards and Private Notes</h2></summary>
+        <div class="content">
+          <p>Each delegate seat has a paired portfolio. The historical identity changes from Module 1 to Module 2, but the delegate keeps the same broad <strong>country, bloc, or ideological logic</strong>. This makes the committee easier to follow and gives each student a stable political identity across both historical modules.</p>
+
+          <div class="note">
+            <p><strong>How to read these cards:</strong> the public position is what the delegate can openly argue; the private objective is what they may pursue strategically; the portfolio power is the special ability they may activate through private notes to the dais.</p>
+          </div>
+
+          <h3>Private Note Format</h3>
+          <div class="note">
+            <p><strong>To:</strong> Crisis Staff / Backroom</p>
+            <p><strong>From:</strong> [Delegate Name and Role]</p>
+            <p><strong>Portfolio Power:</strong> [Name of power]</p>
+            <p><strong>Action:</strong> [What you secretly do]</p>
+            <p><strong>Goal:</strong> [What you want to achieve]</p>
+            <p><strong>Risk / Expenditure:</strong> [What could go wrong, or what resource you use]</p>
+          </div>
+
+          <h3>Individual Portfolio Cards</h3>
+          <div class="portfolio-list">
+            <details class="portfolio-card">
+  <summary><h3>Seat 1 — Soviet / Communist Supreme Leader</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label soviet">Module 1: Chernobyl</span>
+        <h4>Mikhail Gorbachev — General Secretary of the CPSU</h4>
+        <p><span class="field">Public position:</span> The Soviet state is capable, calm, and in control of the emergency.</p>
+        <p><span class="field">Private objective:</span> Protect reform, party authority, and Soviet credibility while avoiding an undeniable human catastrophe.</p>
+        <p><span class="field">Portfolio power:</span> General Secretary’s Line: order ministries to prioritise, release, delay, or reclassify information.</p>
+        <p><span class="field">Information access:</span> Top-level Soviet briefings, KGB summaries, ministry reports, political risk assessments.</p>
+        <p><span class="field">Likely allies:</span> Ryzhkov, Shcherbina, Chebrikov, Shevardnadze</p>
+        <p><span class="field">Possible rivals:</span> Reagan, Casey, Hartman, international press</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I order all ministries to deliver unfiltered radiation readings to my office before any public statement is approved.</div>
+      </div>
+      <div class="module-card">
+        <span class="label soviet">Module 2: Cuban Missile Crisis</span>
+        <h4>Nikita Khrushchev — First Secretary of the CPSU</h4>
+        <p><span class="field">Public position:</span> Soviet actions are defensive and protect Cuba from invasion.</p>
+        <p><span class="field">Private objective:</span> Preserve Soviet prestige while finding a survivable path away from nuclear war.</p>
+        <p><span class="field">Portfolio power:</span> Kremlin Signal: send public threats, secret offers, or ambiguous messages to shape U.S. calculations.</p>
+        <p><span class="field">Information access:</span> Soviet military reports, diplomatic cables, Cuban requests, intelligence warnings.</p>
+        <p><span class="field">Likely allies:</span> Gromyko, Mikoyan, Semichastny, Pliyev</p>
+        <p><span class="field">Possible rivals:</span> Kennedy, McNamara, McCone, Castro if ignored</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I send a private message offering missile withdrawal in exchange for a U.S. non-invasion pledge and discreet discussion of Turkey.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 2 — American Supreme Leader</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label usa">Module 1: Chernobyl</span>
+        <h4>Ronald Reagan — President of the United States</h4>
+        <p><span class="field">Public position:</span> Any nuclear accident with cross-border effects requires clarity and responsible international communication.</p>
+        <p><span class="field">Private objective:</span> Expose dangerous Soviet secrecy without turning the disaster into uncontrolled Cold War propaganda.</p>
+        <p><span class="field">Portfolio power:</span> Presidential Pressure: coordinate diplomatic pressure, public statements, intelligence releases, and allied consultation.</p>
+        <p><span class="field">Information access:</span> CIA assessments, allied radiation reports, embassy cables, media briefings.</p>
+        <p><span class="field">Likely allies:</span> Shultz, Casey, Weinberger, Thatcher, Hartman</p>
+        <p><span class="field">Possible rivals:</span> Gorbachev, Chebrikov, TASS</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I instruct U.S. agencies to compare allied radiation reports with intelligence indicators before making a public accusation.</div>
+      </div>
+      <div class="module-card">
+        <span class="label usa">Module 2: Cuban Missile Crisis</span>
+        <h4>John F. Kennedy — President of the United States</h4>
+        <p><span class="field">Public position:</span> The United States will act firmly but responsibly to protect the hemisphere.</p>
+        <p><span class="field">Private objective:</span> Remove the missiles without triggering nuclear war or appearing weak.</p>
+        <p><span class="field">Portfolio power:</span> Presidential Authority: approve quarantine, public messaging, backchannels, and military readiness levels.</p>
+        <p><span class="field">Information access:</span> EXCOMM summaries, intelligence estimates, military advice, diplomatic signals.</p>
+        <p><span class="field">Likely allies:</span> McNamara, Rusk, McCone, Stevenson</p>
+        <p><span class="field">Possible rivals:</span> Khrushchev, Castro, Soviet military commanders, U.S. hardliners</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I authorize a private channel to test whether a non-invasion pledge can secure verified missile withdrawal.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 3 — Soviet / Communist Crisis Coordinator</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label soviet">Module 1: Chernobyl</span>
+        <h4>Boris Shcherbina — Deputy Chairman of the Council of Ministers / Head of the Government Commission</h4>
+        <p><span class="field">Public position:</span> The commission will coordinate containment, evacuation, and technical assessment.</p>
+        <p><span class="field">Private objective:</span> Force the system to act before bureaucratic delay makes the disaster irreversible.</p>
+        <p><span class="field">Portfolio power:</span> Emergency Commission Orders: coordinate ministries, transport, medical response, technical teams, and field reporting.</p>
+        <p><span class="field">Information access:</span> Plant data, local reports, expert advice, political instructions from Moscow.</p>
+        <p><span class="field">Likely allies:</span> Gorbachev, Ryzhkov, Legasov, Health Ministry</p>
+        <p><span class="field">Possible rivals:</span> Plant officials minimising responsibility, KGB secrecy when excessive</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I order an immediate field commission meeting and require the plant team to provide raw reactor-status data.</div>
+      </div>
+      <div class="module-card">
+        <span class="label soviet">Module 2: Cuban Missile Crisis</span>
+        <h4>Anastas Mikoyan — Soviet Senior Negotiator / Presidium Envoy</h4>
+        <p><span class="field">Public position:</span> The Soviet Union seeks security for Cuba and a dignified political solution.</p>
+        <p><span class="field">Private objective:</span> Find a settlement that Khrushchev can accept without making the Soviet retreat look like surrender.</p>
+        <p><span class="field">Portfolio power:</span> Presidium Troubleshooter: carry compromise proposals, calm Cuban anger, and test backchannel formulas.</p>
+        <p><span class="field">Information access:</span> Kremlin instructions, Cuban concerns, diplomatic messages, negotiation space.</p>
+        <p><span class="field">Likely allies:</span> Khrushchev, Gromyko, Dobrynin, Castro when consulted</p>
+        <p><span class="field">Possible rivals:</span> U.S. hardliners, Cuban officials fearing betrayal</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I quietly ask Cuban representatives what minimum security assurance would make missile withdrawal politically survivable.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 4 — American Defence Executive</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label usa">Module 1: Chernobyl</span>
+        <h4>Caspar Weinberger — U.S. Secretary of Defense</h4>
+        <p><span class="field">Public position:</span> The United States must understand whether the accident creates wider security or environmental risks.</p>
+        <p><span class="field">Private objective:</span> Avoid military panic while ensuring the U.S. is not strategically blind.</p>
+        <p><span class="field">Portfolio power:</span> Strategic Readiness Review: request defence assessments, military monitoring, and contingency planning.</p>
+        <p><span class="field">Information access:</span> Defence intelligence summaries, allied military alerts, technical-security assessments.</p>
+        <p><span class="field">Likely allies:</span> Reagan, Casey, Shultz, U.S. technical advisers</p>
+        <p><span class="field">Possible rivals:</span> Soviet officials withholding information, media panic</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I request a classified assessment of whether the disaster affects Soviet military readiness or nuclear safety practices.</div>
+      </div>
+      <div class="module-card">
+        <span class="label usa">Module 2: Cuban Missile Crisis</span>
+        <h4>Robert McNamara — U.S. Secretary of Defense</h4>
+        <p><span class="field">Public position:</span> Military pressure must be controlled, legal, and reversible.</p>
+        <p><span class="field">Private objective:</span> Keep the President from choosing an option that accidentally triggers war.</p>
+        <p><span class="field">Portfolio power:</span> Defence Coordination: coordinate quarantine planning, readiness levels, and military options.</p>
+        <p><span class="field">Information access:</span> Pentagon plans, naval reports, air strike options, rules of engagement.</p>
+        <p><span class="field">Likely allies:</span> Kennedy, McCone, Taylor, Rusk</p>
+        <p><span class="field">Possible rivals:</span> Soviet commanders, U.S. military hawks, Castro</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I revise quarantine rules of engagement to require repeated warning signals before any use of force.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 5 — Soviet Foreign Minister</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label soviet">Module 1: Chernobyl</span>
+        <h4>Eduard Shevardnadze — Soviet Foreign Minister</h4>
+        <p><span class="field">Public position:</span> The USSR will communicate responsibly while rejecting hostile exploitation of the accident.</p>
+        <p><span class="field">Private objective:</span> Prevent international isolation without forcing Moscow into humiliating full disclosure too early.</p>
+        <p><span class="field">Portfolio power:</span> Diplomatic Language Control: shape diplomatic notes, manage foreign requests, and negotiate wording of public statements.</p>
+        <p><span class="field">Information access:</span> Foreign cables, embassy reactions, allied pressure, public-message drafts.</p>
+        <p><span class="field">Likely allies:</span> Gorbachev, Ryzhkov, TASS when coordinated</p>
+        <p><span class="field">Possible rivals:</span> Shultz, Hartman, international press</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I draft a statement acknowledging an incident while avoiding technical claims we cannot yet verify.</div>
+      </div>
+      <div class="module-card">
+        <span class="label soviet">Module 2: Cuban Missile Crisis</span>
+        <h4>Andrei Gromyko — Soviet Foreign Minister</h4>
+        <p><span class="field">Public position:</span> The missiles question must be discussed within the wider issue of U.S. threats to Cuba.</p>
+        <p><span class="field">Private objective:</span> Protect Soviet bargaining space and avoid an admission that weakens Khrushchev.</p>
+        <p><span class="field">Portfolio power:</span> Diplomatic Framing: control diplomatic wording, deny or deflect accusations, and open formal negotiation channels.</p>
+        <p><span class="field">Information access:</span> Soviet diplomatic instructions, U.S. public statements, UN pressure.</p>
+        <p><span class="field">Likely allies:</span> Khrushchev, Dobrynin, Mikoyan</p>
+        <p><span class="field">Possible rivals:</span> Rusk, Stevenson, Kennedy</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I prepare a UN statement insisting on Cuban security guarantees before any discussion of Soviet military assets.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 6 — American Foreign Minister</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label usa">Module 1: Chernobyl</span>
+        <h4>George Shultz — U.S. Secretary of State</h4>
+        <p><span class="field">Public position:</span> The Soviet Union must provide reliable information to affected states and international bodies.</p>
+        <p><span class="field">Private objective:</span> Use diplomacy to expose concealment while keeping open a channel for cooperation.</p>
+        <p><span class="field">Portfolio power:</span> Western Diplomatic Pressure: coordinate allied statements, demarches, and demands for verification.</p>
+        <p><span class="field">Information access:</span> Embassy cables, allied diplomatic reports, public Soviet statements.</p>
+        <p><span class="field">Likely allies:</span> Reagan, Hartman, Thatcher, IAEA observer</p>
+        <p><span class="field">Possible rivals:</span> Shevardnadze, TASS, Chebrikov</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I instruct allied embassies to request identical radiation and evacuation data so inconsistencies become visible.</div>
+      </div>
+      <div class="module-card">
+        <span class="label usa">Module 2: Cuban Missile Crisis</span>
+        <h4>Dean Rusk — U.S. Secretary of State</h4>
+        <p><span class="field">Public position:</span> The United States seeks removal of offensive weapons through firm but lawful pressure.</p>
+        <p><span class="field">Private objective:</span> Keep a negotiated exit open while preserving alliance unity.</p>
+        <p><span class="field">Portfolio power:</span> Diplomatic Channel Management: coordinate diplomatic messages, alliance consultation, and public legal framing.</p>
+        <p><span class="field">Information access:</span> State Department cables, allied views, Soviet responses, UN discussions.</p>
+        <p><span class="field">Likely allies:</span> Kennedy, Stevenson, McNamara</p>
+        <p><span class="field">Possible rivals:</span> Gromyko, Castro, U.S. hardliners</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I ask our UN team to frame quarantine as a temporary security measure, not a declaration of war.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 7 — Soviet Intelligence / Internal Security Chief</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label soviet">Module 1: Chernobyl</span>
+        <h4>Viktor Chebrikov — Chairman of the KGB</h4>
+        <p><span class="field">Public position:</span> Rumours and panic must be contained to protect public order and state security.</p>
+        <p><span class="field">Private objective:</span> Control leaks and identify who may expose state negligence.</p>
+        <p><span class="field">Portfolio power:</span> Internal Security Net: monitor officials, restrict documents, trace leaks, and screen foreign contacts.</p>
+        <p><span class="field">Information access:</span> Internal reports, surveillance summaries, leak indicators, restricted communications.</p>
+        <p><span class="field">Likely allies:</span> Gorbachev when secrecy is valued, TASS, selected ministries</p>
+        <p><span class="field">Possible rivals:</span> Legasov if too transparent, foreign press, CIA</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I monitor plant communications and identify whether any technician has contacted foreign journalists.</div>
+      </div>
+      <div class="module-card">
+        <span class="label soviet">Module 2: Cuban Missile Crisis</span>
+        <h4>Vladimir Semichastny — Chairman of the KGB</h4>
+        <p><span class="field">Public position:</span> Soviet security requires discipline, secrecy, and reliable channels.</p>
+        <p><span class="field">Private objective:</span> Protect Soviet operations and prevent U.S. intelligence from reading Soviet intentions too clearly.</p>
+        <p><span class="field">Portfolio power:</span> KGB Counterintelligence Screen: screen communications, protect Soviet secrets, and identify leaks or disloyal actors.</p>
+        <p><span class="field">Information access:</span> KGB reports, Soviet military security warnings, embassy-channel risks.</p>
+        <p><span class="field">Likely allies:</span> Khrushchev, Gromyko, Soviet commanders</p>
+        <p><span class="field">Possible rivals:</span> McCone, U.S. reconnaissance, international press</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I review embassy communications for leak risks before any sensitive offer is sent to Washington.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 8 — American Intelligence Chief</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label usa">Module 1: Chernobyl</span>
+        <h4>William Casey — Director of Central Intelligence</h4>
+        <p><span class="field">Public position:</span> The United States must verify Soviet claims independently.</p>
+        <p><span class="field">Private objective:</span> Discover the scale of the disaster before public Soviet admissions catch up.</p>
+        <p><span class="field">Portfolio power:</span> Intelligence Correlation: compare satellite indicators, allied readings, embassy information, and intercepted signals.</p>
+        <p><span class="field">Information access:</span> CIA assessments, satellite indicators, allied technical data, embassy rumours.</p>
+        <p><span class="field">Likely allies:</span> Reagan, Shultz, Hartman, U.S. technical advisers</p>
+        <p><span class="field">Possible rivals:</span> Chebrikov, TASS, Soviet Foreign Ministry</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I cross-check allied radiation readings with satellite imagery of emergency activity near the plant.</div>
+      </div>
+      <div class="module-card">
+        <span class="label usa">Module 2: Cuban Missile Crisis</span>
+        <h4>John McCone — Director of Central Intelligence</h4>
+        <p><span class="field">Public position:</span> Policy must be based on verified intelligence, not assumptions.</p>
+        <p><span class="field">Private objective:</span> Ensure Kennedy understands both the missile threat and the uncertainty in the evidence.</p>
+        <p><span class="field">Portfolio power:</span> Intelligence Estimate: deliver classified estimates, challenge false confidence, and request further reconnaissance.</p>
+        <p><span class="field">Information access:</span> U-2 imagery, CIA reports, SIGINT summaries, Soviet movement assessments.</p>
+        <p><span class="field">Likely allies:</span> Kennedy, McNamara, Bundy, Rusk</p>
+        <p><span class="field">Possible rivals:</span> Soviet intelligence, officials who ignore uncertainty</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I request one more reconnaissance pass before any air-strike recommendation is treated as final.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 9 — Soviet / Communist Technical Expert</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label soviet">Module 1: Chernobyl</span>
+        <h4>Valery Legasov — Soviet Nuclear Scientist</h4>
+        <p><span class="field">Public position:</span> Decisions must be based on reactor physics and radiation evidence, not political convenience.</p>
+        <p><span class="field">Private objective:</span> Force the leadership to accept the scale of the disaster before more people are exposed.</p>
+        <p><span class="field">Portfolio power:</span> Technical Truth: provide technical assessments, challenge false reports, and recommend containment measures.</p>
+        <p><span class="field">Information access:</span> Reactor data, radiation readings, expert calculations, containment feasibility.</p>
+        <p><span class="field">Likely allies:</span> Shcherbina, Health Ministry, some technical staff</p>
+        <p><span class="field">Possible rivals:</span> Officials minimising damage, KGB censors, plant management</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I prepare a classified technical brief showing why the explosion cannot be described as a minor fire.</div>
+      </div>
+      <div class="module-card">
+        <span class="label soviet">Module 2: Cuban Missile Crisis</span>
+        <h4>Soviet Missile Technical Adviser — Composite Role</h4>
+        <p><span class="field">Public position:</span> Operational decisions must reflect the real readiness and vulnerability of missile sites.</p>
+        <p><span class="field">Private objective:</span> Prevent leaders from making threats based on inaccurate assumptions about missile readiness.</p>
+        <p><span class="field">Portfolio power:</span> Launch-Site Technical Assessment: clarify missile readiness, launch-site vulnerability, and technical risk.</p>
+        <p><span class="field">Information access:</span> Missile-site reports, readiness estimates, field communications, technical constraints.</p>
+        <p><span class="field">Likely allies:</span> Khrushchev, Pliyev, Gromyko when accurate data is needed</p>
+        <p><span class="field">Possible rivals:</span> Political actors who exaggerate readiness, U.S. intelligence</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I report privately whether the missile sites are truly operational or still vulnerable to disruption.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 10 — American Technical / Science Adviser</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label usa">Module 1: Chernobyl</span>
+        <h4>U.S. Nuclear Safety Adviser — Composite Role</h4>
+        <p><span class="field">Public position:</span> International health and safety require verifiable technical information.</p>
+        <p><span class="field">Private objective:</span> Separate genuine safety concern from propaganda pressure.</p>
+        <p><span class="field">Portfolio power:</span> Technical Verification Request: analyse radiation reports, recommend questions for the Soviets, and brief U.S. leaders.</p>
+        <p><span class="field">Information access:</span> Scientific assessments, allied measurements, nuclear-safety comparisons.</p>
+        <p><span class="field">Likely allies:</span> Casey, Shultz, IAEA observer, Thatcher</p>
+        <p><span class="field">Possible rivals:</span> TASS, Soviet officials hiding measurements</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I produce a list of technical questions that Soviet officials must answer for international safety verification.</div>
+      </div>
+      <div class="module-card">
+        <span class="label usa">Module 2: Cuban Missile Crisis</span>
+        <h4>Jerome Wiesner — U.S. Presidential Science Adviser</h4>
+        <p><span class="field">Public position:</span> Military choices must be tested against the technical realities of nuclear escalation.</p>
+        <p><span class="field">Private objective:</span> Keep scientific uncertainty visible in the President’s options.</p>
+        <p><span class="field">Portfolio power:</span> Scientific Risk Counsel: advise on nuclear risk, verification, and the consequences of escalation.</p>
+        <p><span class="field">Information access:</span> Scientific risk assessments, nuclear effects estimates, verification options.</p>
+        <p><span class="field">Likely allies:</span> Kennedy, McNamara, McCone</p>
+        <p><span class="field">Possible rivals:</span> Officials who treat nuclear danger as ordinary military pressure</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I brief the President on the difference between a controllable naval encounter and an uncontrollable nuclear escalation chain.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 11 — Communist Affected-Territory Leader</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label soviet">Module 1: Chernobyl</span>
+        <h4>Volodymyr Shcherbytsky — First Secretary of the Communist Party of Ukraine</h4>
+        <p><span class="field">Public position:</span> The Ukrainian SSR will cooperate with Moscow and maintain public order.</p>
+        <p><span class="field">Private objective:</span> Protect Ukrainian civilians and institutions without openly defying the Kremlin.</p>
+        <p><span class="field">Portfolio power:</span> Republic-Level Mobilisation: pressure local authorities, hospitals, police, and transport networks.</p>
+        <p><span class="field">Information access:</span> Regional casualty reports, evacuation readiness, local party communications.</p>
+        <p><span class="field">Likely allies:</span> Pripyat authority, Health Ministry, Shcherbina</p>
+        <p><span class="field">Possible rivals:</span> Chebrikov, Bryukhanov, TASS</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I discreetly prepare buses and medical reception points around Pripyat without announcing a full evacuation yet.</div>
+      </div>
+      <div class="module-card">
+        <span class="label soviet">Module 2: Cuban Missile Crisis</span>
+        <h4>Fidel Castro — Prime Minister of Cuba</h4>
+        <p><span class="field">Public position:</span> Cuba will not be treated as a pawn between superpowers.</p>
+        <p><span class="field">Private objective:</span> Secure Cuban survival and avoid a settlement that sacrifices Cuban sovereignty.</p>
+        <p><span class="field">Portfolio power:</span> Revolutionary Mobilisation: activate Cuban defence readiness, public resistance, or diplomatic protest.</p>
+        <p><span class="field">Information access:</span> Cuban military reports, Soviet communications, public mood in Havana.</p>
+        <p><span class="field">Likely allies:</span> Raúl Castro, Soviet commanders, Khrushchev when aligned</p>
+        <p><span class="field">Possible rivals:</span> Kennedy, OAS, Khrushchev if bargaining over Cuba without consent</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I order Cuban forces to increase readiness but instruct commanders not to fire unless Cuban territory is directly attacked.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 12 — Communist Local Civilian Authority</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label soviet">Module 1: Chernobyl</span>
+        <h4>Pripyat City Executive Committee Representative — Composite Role</h4>
+        <p><span class="field">Public position:</span> Local order must be preserved while instructions from higher authorities are followed.</p>
+        <p><span class="field">Private objective:</span> Move civilians out of danger before delays become fatal.</p>
+        <p><span class="field">Portfolio power:</span> Local Evacuation Network: prepare buses, hospitals, schools, police cordons, and local announcements.</p>
+        <p><span class="field">Information access:</span> Local rumours, hospital admissions, transport capacity, police reports.</p>
+        <p><span class="field">Likely allies:</span> Shcherbytsky, Health Ministry, Shcherbina</p>
+        <p><span class="field">Possible rivals:</span> Plant officials denying danger, KGB if evacuation leaks</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I quietly identify buses and routes for a rapid evacuation if Moscow authorises it.</div>
+      </div>
+      <div class="module-card">
+        <span class="label soviet">Module 2: Cuban Missile Crisis</span>
+        <h4>Havana Civil Defence Representative — Composite Role</h4>
+        <p><span class="field">Public position:</span> Cuban civilians must be prepared without creating panic.</p>
+        <p><span class="field">Private objective:</span> Protect Havana’s population if the superpowers miscalculate.</p>
+        <p><span class="field">Portfolio power:</span> Urban Defence Network: prepare shelters, medical posts, public instructions, and local defence coordination.</p>
+        <p><span class="field">Information access:</span> Civilian mood, local readiness, shelter capacity, defence alerts.</p>
+        <p><span class="field">Likely allies:</span> Fidel Castro, Raúl Castro, Cuban Foreign Ministry</p>
+        <p><span class="field">Possible rivals:</span> U.S. military pressure, Soviet decisions made without Cuban input</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I prepare public safety instructions for air-raid conditions but keep the announcement sealed until authorised.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 13 — Soviet / Communist Site Commander</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label soviet">Module 1: Chernobyl</span>
+        <h4>Viktor Bryukhanov — Director of Chernobyl Nuclear Power Plant</h4>
+        <p><span class="field">Public position:</span> Plant management will provide order and technical cooperation.</p>
+        <p><span class="field">Private objective:</span> Limit personal and institutional blame while retaining influence over the official account.</p>
+        <p><span class="field">Portfolio power:</span> Plant Command Chain: control plant records, staff access, technical logs, and site-level reporting.</p>
+        <p><span class="field">Information access:</span> Plant logs, staff testimony, site damage reports, internal communications.</p>
+        <p><span class="field">Likely allies:</span> Dyatlov if coordinated, local officials needing information</p>
+        <p><span class="field">Possible rivals:</span> Legasov, Shcherbina, investigators</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I secure the plant logs and prepare a version of events that emphasises equipment failure over management responsibility.</div>
+      </div>
+      <div class="module-card">
+        <span class="label soviet">Module 2: Cuban Missile Crisis</span>
+        <h4>Issa Pliyev — Commander of Soviet Forces in Cuba</h4>
+        <p><span class="field">Public position:</span> Soviet forces in Cuba are defensive and disciplined.</p>
+        <p><span class="field">Private objective:</span> Maintain readiness without allowing a field incident to decide the fate of the world.</p>
+        <p><span class="field">Portfolio power:</span> Field Command Authority: control Soviet field readiness, communications discipline, and local military posture.</p>
+        <p><span class="field">Information access:</span> Field reports, missile-site readiness, Cuban military coordination, Soviet orders.</p>
+        <p><span class="field">Likely allies:</span> Khrushchev, Soviet technical adviser, Castro when aligned</p>
+        <p><span class="field">Possible rivals:</span> U.S. Navy commander, Cuban commanders acting independently</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I instruct Soviet units to hold fire unless directly attacked and report all U.S. overflights immediately.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 14 — Soviet / Communist Deputy Operations Officer</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label soviet">Module 1: Chernobyl</span>
+        <h4>Anatoly Dyatlov — Deputy Chief Engineer, Chernobyl Plant</h4>
+        <p><span class="field">Public position:</span> The technical sequence of events must be understood before blame is assigned.</p>
+        <p><span class="field">Private objective:</span> Defend the control-room team and shape interpretation of the failed test.</p>
+        <p><span class="field">Portfolio power:</span> Control-Room Testimony: provide or withhold operational details, staff testimony, and technical explanations.</p>
+        <p><span class="field">Information access:</span> Control-room sequence, staff behaviour, technical test conditions.</p>
+        <p><span class="field">Likely allies:</span> Bryukhanov when institutional blame is feared</p>
+        <p><span class="field">Possible rivals:</span> Legasov, investigators, Shcherbina</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I provide a selective timeline that highlights design flaws and downplays operator responsibility.</div>
+      </div>
+      <div class="module-card">
+        <span class="label soviet">Module 2: Cuban Missile Crisis</span>
+        <h4>Soviet Missile Operations Commander — Composite Role</h4>
+        <p><span class="field">Public position:</span> Missile units will follow Soviet command discipline.</p>
+        <p><span class="field">Private objective:</span> Prevent politicians from assuming the field situation is simpler than it is.</p>
+        <p><span class="field">Portfolio power:</span> Operational Readiness Log: report missile readiness, launch procedures, communications delays, and field risks.</p>
+        <p><span class="field">Information access:</span> Operational logs, readiness state, field morale, command delays.</p>
+        <p><span class="field">Likely allies:</span> Pliyev, Soviet technical adviser, Semichastny</p>
+        <p><span class="field">Possible rivals:</span> U.S. intelligence, Cuban commanders who want more autonomy</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I privately report that some units are not ready for immediate launch despite political claims of full readiness.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 15 — Communist Military / Civil Defence Authority</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label soviet">Module 1: Chernobyl</span>
+        <h4>Red Army Chemical &amp; Decontamination Commander — Composite Role</h4>
+        <p><span class="field">Public position:</span> Military containment units will secure and decontaminate affected zones.</p>
+        <p><span class="field">Private objective:</span> Gain authority and resources before political delay worsens exposure of troops and civilians.</p>
+        <p><span class="field">Portfolio power:</span> Containment Deployment: move troops, cordon zones, decontaminate areas, and enforce restricted access.</p>
+        <p><span class="field">Information access:</span> Field radiation readings, unit readiness, logistical needs, restricted-zone reports.</p>
+        <p><span class="field">Likely allies:</span> Shcherbina, Health Ministry, local authorities</p>
+        <p><span class="field">Possible rivals:</span> Plant management, officials minimising danger</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I deploy decontamination units to key roads and request authority to restrict entry into high-radiation areas.</div>
+      </div>
+      <div class="module-card">
+        <span class="label soviet">Module 2: Cuban Missile Crisis</span>
+        <h4>Raúl Castro — Minister of the Revolutionary Armed Forces of Cuba</h4>
+        <p><span class="field">Public position:</span> Cuba will defend itself against invasion or coercion.</p>
+        <p><span class="field">Private objective:</span> Maintain deterrence without provoking an attack that Cuba cannot survive alone.</p>
+        <p><span class="field">Portfolio power:</span> Revolutionary Defence Readiness: mobilise Cuban forces, coordinate with Soviet units, and control defensive posture.</p>
+        <p><span class="field">Information access:</span> Cuban military readiness, local defence plans, Soviet-Cuban coordination.</p>
+        <p><span class="field">Likely allies:</span> Fidel Castro, Pliyev, Havana Civil Defence</p>
+        <p><span class="field">Possible rivals:</span> U.S. Navy commander, OAS pressure, Soviet negotiators bypassing Cuba</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I raise readiness around key installations but forbid local commanders from firing without central authorisation.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 16 — Soviet / Communist State Media</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label soviet">Module 1: Chernobyl</span>
+        <h4>TASS / Soviet State Media Representative — Composite Role</h4>
+        <p><span class="field">Public position:</span> Public communication must preserve calm and prevent hostile exaggeration.</p>
+        <p><span class="field">Private objective:</span> Control the first version of the story before foreign media defines it.</p>
+        <p><span class="field">Portfolio power:</span> Official Narrative: draft official statements, delay details, frame blame, or announce controlled transparency.</p>
+        <p><span class="field">Information access:</span> Approved talking points, censorship instructions, rumours of foreign coverage.</p>
+        <p><span class="field">Likely allies:</span> Chebrikov, Shevardnadze, Gorbachev when coordinated</p>
+        <p><span class="field">Possible rivals:</span> International press, U.S. diplomats, technical experts demanding full disclosure</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I release a brief statement acknowledging an incident but avoiding radiation figures until ministries agree on wording.</div>
+      </div>
+      <div class="module-card">
+        <span class="label soviet">Module 2: Cuban Missile Crisis</span>
+        <h4>Soviet State Media / Radio Moscow Representative — Composite Role</h4>
+        <p><span class="field">Public position:</span> The Soviet position must be heard against U.S. accusations and war rhetoric.</p>
+        <p><span class="field">Private objective:</span> Frame the crisis as U.S. aggression while keeping room for a face-saving settlement.</p>
+        <p><span class="field">Portfolio power:</span> Soviet Global Broadcast: broadcast official lines, amplify Soviet proposals, and counter U.S. messaging.</p>
+        <p><span class="field">Information access:</span> Approved Kremlin language, foreign reactions, propaganda opportunities.</p>
+        <p><span class="field">Likely allies:</span> Gromyko, Khrushchev, Semichastny</p>
+        <p><span class="field">Possible rivals:</span> Salinger, international press, Stevenson</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I prepare two broadcast versions: one hard-line response and one compromise-framing response, depending on the next U.S. move.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 17 — American Public Narrative / Press Office</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label usa">Module 1: Chernobyl</span>
+        <h4>White House Communications Representative — Composite Role</h4>
+        <p><span class="field">Public position:</span> The public deserves calm, accurate, and responsible information about international nuclear risk.</p>
+        <p><span class="field">Private objective:</span> Frame the crisis so Soviet secrecy appears dangerous without causing unnecessary panic.</p>
+        <p><span class="field">Portfolio power:</span> Western Public Framing: shape presidential statements, press lines, and public explanation of U.S. concerns.</p>
+        <p><span class="field">Information access:</span> White House guidance, press questions, intelligence-cleared talking points.</p>
+        <p><span class="field">Likely allies:</span> Reagan, Shultz, Casey</p>
+        <p><span class="field">Possible rivals:</span> TASS, Soviet diplomats, sensational press</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I prepare a statement that distinguishes confirmed radiation data from unverified claims of Soviet negligence.</div>
+      </div>
+      <div class="module-card">
+        <span class="label usa">Module 2: Cuban Missile Crisis</span>
+        <h4>Pierre Salinger — White House Press Secretary</h4>
+        <p><span class="field">Public position:</span> The administration will communicate firmly without revealing sensitive intelligence.</p>
+        <p><span class="field">Private objective:</span> Prevent leaks or careless wording from narrowing Kennedy’s options.</p>
+        <p><span class="field">Portfolio power:</span> Presidential Message Discipline: manage press briefings, public tone, and controlled release of information.</p>
+        <p><span class="field">Information access:</span> Press questions, White House guidance, declassified talking points.</p>
+        <p><span class="field">Likely allies:</span> Kennedy, Rusk, McNamara</p>
+        <p><span class="field">Possible rivals:</span> International press, Soviet media, U.S. officials leaking too much</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I draft language that signals resolve but avoids promising military action the President has not approved.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 18 — Western Diplomatic / Alliance Pressure</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label usa">Module 1: Chernobyl</span>
+        <h4>Arthur A. Hartman — U.S. Ambassador to the USSR</h4>
+        <p><span class="field">Public position:</span> Washington requires credible answers from Moscow through official diplomatic channels.</p>
+        <p><span class="field">Private objective:</span> Extract useful information without making the Soviets close the channel completely.</p>
+        <p><span class="field">Portfolio power:</span> Embassy Channel: deliver démarches, request clarification, cultivate embassy sources, and report mood in Moscow.</p>
+        <p><span class="field">Information access:</span> Embassy observations, Soviet diplomatic replies, informal conversations.</p>
+        <p><span class="field">Likely allies:</span> Shultz, Reagan, Casey</p>
+        <p><span class="field">Possible rivals:</span> Shevardnadze, Chebrikov, TASS</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I request an urgent meeting with Soviet officials and ask for specific radiation and evacuation figures.</div>
+      </div>
+      <div class="module-card">
+        <span class="label usa">Module 2: Cuban Missile Crisis</span>
+        <h4>Adlai Stevenson — U.S. Ambassador to the United Nations</h4>
+        <p><span class="field">Public position:</span> The United States will present its case before the world with evidence.</p>
+        <p><span class="field">Private objective:</span> Use the UN to pressure the Soviets while keeping diplomatic exits open.</p>
+        <p><span class="field">Portfolio power:</span> UN Evidence Strategy: shape UN arguments, present evidence, and coordinate international legitimacy.</p>
+        <p><span class="field">Information access:</span> UN reactions, U.S. evidence packages, diplomatic positions of other states.</p>
+        <p><span class="field">Likely allies:</span> Kennedy, Rusk, U Thant when useful</p>
+        <p><span class="field">Possible rivals:</span> Gromyko, Soviet delegates, states suspicious of U.S. pressure</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I prepare a UN presentation that reveals enough photographic evidence to prove the threat without exposing sources unnecessarily.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 19 — International Verifier / Mediator</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label neutral">Module 1: Chernobyl</span>
+        <h4>Hans Blix — Director General of the IAEA</h4>
+        <p><span class="field">Public position:</span> Nuclear safety requires transparent technical cooperation beyond ideology.</p>
+        <p><span class="field">Private objective:</span> Gain access to reliable data before the disaster becomes a precedent for total secrecy.</p>
+        <p><span class="field">Portfolio power:</span> International Verification Request: request inspections, technical briefings, and international safety coordination.</p>
+        <p><span class="field">Information access:</span> IAEA protocols, member-state reports, technical safety standards, diplomatic limitations.</p>
+        <p><span class="field">Likely allies:</span> Technical experts, Health Ministry, U.S. and Soviet diplomats when cooperative</p>
+        <p><span class="field">Possible rivals:</span> Officials rejecting outside scrutiny</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I formally request technical data and offer an international expert team to assist without assigning blame publicly.</div>
+      </div>
+      <div class="module-card">
+        <span class="label neutral">Module 2: Cuban Missile Crisis</span>
+        <h4>U Thant — United Nations Secretary-General</h4>
+        <p><span class="field">Public position:</span> The world must step back from the edge of nuclear war through communication and restraint.</p>
+        <p><span class="field">Private objective:</span> Create a pause long enough for both superpowers to accept a face-saving compromise.</p>
+        <p><span class="field">Portfolio power:</span> Mediation Appeal: propose pauses, mediation language, and channels for de-escalation.</p>
+        <p><span class="field">Information access:</span> UN diplomatic traffic, public appeals, positions of non-aligned states.</p>
+        <p><span class="field">Likely allies:</span> Stevenson, Gromyko, diplomats seeking compromise</p>
+        <p><span class="field">Possible rivals:</span> Military hawks, media panic, leaders rejecting mediation</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I propose a temporary pause in provocative actions while both sides exchange verified guarantees through the UN.</div>
+      </div>
+    </div>
+  </div>
+</details>
+<details class="portfolio-card">
+  <summary><h3>Seat 20 — Independent International Press</h3></summary>
+  <div class="portfolio-body">
+    <div class="portfolio-pair">
+      <div class="module-card">
+        <span class="label neutral">Module 1: Chernobyl</span>
+        <h4>International Press Correspondent — Composite Role</h4>
+        <p><span class="field">Public position:</span> The public has a right to know what governments are hiding.</p>
+        <p><span class="field">Private objective:</span> Break the story first without publishing unverifiable claims that destroy credibility.</p>
+        <p><span class="field">Portfolio power:</span> Investigative Leak: publish reports, cultivate sources, or pressure officials through questioning.</p>
+        <p><span class="field">Information access:</span> Rumours, eyewitnesses, diplomatic hints, scientific claims, official denials.</p>
+        <p><span class="field">Likely allies:</span> Whistleblowers, technical experts, foreign diplomats</p>
+        <p><span class="field">Possible rivals:</span> State media, intelligence services, officials suppressing information</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I seek confirmation from two independent scientific sources before reporting that radiation has crossed borders.</div>
+      </div>
+      <div class="module-card">
+        <span class="label neutral">Module 2: Cuban Missile Crisis</span>
+        <h4>International Press Correspondent — Composite Role</h4>
+        <p><span class="field">Public position:</span> The world must understand how close the crisis is to war.</p>
+        <p><span class="field">Private objective:</span> Reveal enough truth to inform the public without causing panic or burning sources.</p>
+        <p><span class="field">Portfolio power:</span> Global Narrative Pressure: publish leaks, challenge spokespeople, and shape international perception.</p>
+        <p><span class="field">Information access:</span> Press briefings, leaks, UN rumours, naval reports, public fear.</p>
+        <p><span class="field">Likely allies:</span> Salinger when transparent, UN sources, diplomats seeking disclosure</p>
+        <p><span class="field">Possible rivals:</span> State secrecy on both sides, sensational outlets</p>
+        <div class="sample-note"><strong>Sample private note:</strong> I ask public questions about whether backchannel talks exist, forcing officials to manage rumours of compromise.</div>
+      </div>
+    </div>
+  </div>
+</details>
+          </div>
+
+          <h3>Backroom Rules</h3>
+          <ul>
+            <li>You may only use powers that fit your role and historical position.</li>
+            <li>You may not solve the entire crisis with one private note.</li>
+            <li>Every secret action may create consequences.</li>
+            <li>Information gained privately is not automatically public.</li>
+            <li>Leaks, deception, and intelligence operations must be specific and plausible.</li>
+            <li>The dais may return a result as <strong>success</strong>, <strong>partial success</strong>, <strong>failure</strong>, or <strong>success with consequence</strong>.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="section" id="strategy">
+        <summary><h2>7. Conclusions and Strategic Recommendations</h2></summary>
+        <div class="content">
+          <p>Delegates should not approach this committee as a simple contest between good and evil, truth and lies, or peace and war. In both modules, leaders face real pressures: fear of panic, fear of humiliation, military risk, bureaucratic self-protection, ideological rivalry, and uncertainty about what is actually happening.</p>
+
+          <h3>Strategic Advice</h3>
+          <ol>
+            <li><strong>Know your information level.</strong> Ask yourself what your role actually knows, what it suspects, and what it wants others to believe.</li>
+            <li><strong>Use public debate and private notes together.</strong> A good public speech can prepare the ground for a private action.</li>
+            <li><strong>Do not confuse secrecy with success.</strong> Hiding information may help temporarily, but it can destroy credibility later.</li>
+            <li><strong>Verify before escalating.</strong> In the Cuban Missile Crisis, one misunderstood signal can push the world toward nuclear war.</li>
+            <li><strong>Think about the final record.</strong> Each module ends with a final document. Your goal is to shape not only the crisis, but the explanation of the crisis.</li>
+          </ol>
+
+          <div class="note">
+            <p><strong>Final Committee Lesson:</strong> Information is not neutral. It is power, protection, danger, and responsibility.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="section" id="appendix-a">
+        <summary><h2>Appendix A: Essential Terminology</h2></summary>
+        <div class="content">
+          <table>
+            <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+            <tbody>
+              <tr><td>Backchannel</td><td>A secret or unofficial communication route used to negotiate outside public view.</td></tr>
+              <tr><td>Brinkmanship</td><td>The strategy of pushing a dangerous situation close to disaster to force the other side to back down.</td></tr>
+              <tr><td>Classified Information</td><td>Information restricted to certain officials because of security or political sensitivity.</td></tr>
+              <tr><td>Crisis Update</td><td>A breaking development issued by the dais requiring immediate response.</td></tr>
+              <tr><td>Directive</td><td>A short, action-oriented order used for immediate crisis response.</td></tr>
+              <tr><td>Epistemic Security</td><td>The protection of the conditions that allow people and institutions to know what is true.</td></tr>
+              <tr><td>Intelligence Brief</td><td>A structured report summarising uncertain or classified information.</td></tr>
+              <tr><td>Portfolio Power</td><td>A role-specific asset or ability used through private notes to the dais.</td></tr>
+              <tr><td>Private Note</td><td>A secret message sent to the dais to activate a portfolio power or request confidential action.</td></tr>
+              <tr><td>Quarantine</td><td>In the Cuban Missile Crisis, the U.S. term for the naval blockade of offensive military shipments to Cuba.</td></tr>
+              <tr><td>SIGINT</td><td>Signals Intelligence: intelligence gathered from intercepted or analysed communications and electronic signals.</td></tr>
+              <tr><td>Verification</td><td>The process of confirming whether a claim, withdrawal, evacuation, or technical report is true.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="section" id="appendix-b">
+        <summary><h2>Appendix B: Pronunciation Guide</h2></summary>
+        <div class="content">
+          <table>
+            <thead><tr><th>Name / Term</th><th>Approximate Pronunciation</th></tr></thead>
+            <tbody>
+              <tr><td>Chernobyl</td><td>chur-NOH-bil</td></tr>
+              <tr><td>Pripyat</td><td>PRI-pyat</td></tr>
+              <tr><td>Gorbachev</td><td>GOR-buh-chov</td></tr>
+              <tr><td>Shcherbina</td><td>shcher-BEE-nah</td></tr>
+              <tr><td>Legasov</td><td>leh-GAH-sov</td></tr>
+              <tr><td>Bryukhanov</td><td>brew-KHAH-nov</td></tr>
+              <tr><td>Dyatlov</td><td>DYAT-lov</td></tr>
+              <tr><td>Khrushchev</td><td>KROOSH-chev</td></tr>
+              <tr><td>McNamara</td><td>mak-nuh-MAR-uh</td></tr>
+              <tr><td>Gromyko</td><td>gro-MEE-ko</td></tr>
+              <tr><td>Dobrynin</td><td>dob-RIN-in</td></tr>
+              <tr><td>U Thant</td><td>oo THANT</td></tr>
+              <tr><td>SIGINT</td><td>SIG-int</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </main>
+
+    <footer>
+      ✨✍️ Created by Panagiotis Domvros, English and Drama Teacher, All Rights Reserved ✍️✨
+    </footer>
+  </div>
+
+  <script>
+    function openAll(){document.querySelectorAll('details').forEach(d=>d.open=true)}
+    function closeAll(){document.querySelectorAll('details').forEach(d=>d.open=false)}
+    function printGuide(){openAll(); setTimeout(()=>window.print(), 100)}
+    document.querySelectorAll('a[href^="#"]').forEach(link=>{
+      link.addEventListener('click', e=>{
+        const target=document.querySelector(link.getAttribute('href'));
+        if(target && target.tagName.toLowerCase()==='details'){target.open=true;}
+      });
+    });
+  </script>
+</body>
+</html>
